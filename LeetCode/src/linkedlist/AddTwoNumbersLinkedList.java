@@ -1,5 +1,4 @@
-package com.avi;
-
+package linkedlist;
 
 import java.util.ArrayList;
 
@@ -48,7 +47,7 @@ public class AddTwoNumbersLinkedList {
         boolean carry = false;
 
         while (l1 != null || l2 != null) {
-            int sum = 0;
+            int sum;
 
             if (l1 == null) {       //If l1 is null, only proceed l2
                 sum = l2.val;
@@ -122,12 +121,12 @@ public class AddTwoNumbersLinkedList {
     }
 
     private static ListNode addItem(ArrayList<Integer> item, ListNode l1Node, ListNode temp1) {
-        for (int i = 0; i < item.size(); i++) {
+        for (Integer integer : item) {
             if (l1Node == null) {
-                l1Node = new ListNode(item.get(i));
+                l1Node = new ListNode(integer);
                 temp1 = l1Node;
             } else {
-                temp1.next = new ListNode(item.get(i));
+                temp1.next = new ListNode(integer);
                 temp1 = temp1.next;
             }
         }
