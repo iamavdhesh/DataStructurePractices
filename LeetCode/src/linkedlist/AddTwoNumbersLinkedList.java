@@ -40,6 +40,33 @@ public class AddTwoNumbersLinkedList {
     }
 
 
+    public static ListNode removeElements(ListNode head, int val) {
+
+        ListNode temp=head;
+        while(temp!=null)
+        {
+            if(temp.next!=null && temp.next.val==val){
+                if(temp.next.next!=null)
+                    temp.next=temp.next.next;
+                else
+                    temp.next=null;
+
+            }else if(temp.val==val){
+                if(temp.next==null)
+                    head=null;
+                else
+                    head=temp.next;
+                temp=temp.next;
+            } else{
+                temp=temp.next;
+            }
+
+        }
+        return head;
+
+    }
+
+
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
         ListNode head = new ListNode(0);
@@ -86,14 +113,24 @@ public class AddTwoNumbersLinkedList {
     public static void main(String[] args) {
 
         var item = new ArrayList<Integer>();
+//        item.add(2);
+//        item.add(4);
+//        item.add(3);
+
+        item.add(1);
         item.add(2);
-        item.add(4);
-        item.add(3);
+//        item.add(6);
+//        item.add(3);
+//        item.add(4);
+//        item.add(5);
+//        item.add(6);
+
 
         var item2 = new ArrayList<Integer>();
         item2.add(5);
         item2.add(6);
         item2.add(4);
+
 
 
         ListNode l1Node = null, temp1;
@@ -107,6 +144,7 @@ public class AddTwoNumbersLinkedList {
 
 
         printList(addTwoNumbers(l1Node, l2Node));
+        printList(removeElements(l1Node,1));
 
     }
 

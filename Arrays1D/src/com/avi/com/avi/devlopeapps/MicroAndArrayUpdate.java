@@ -1,6 +1,9 @@
 package com.avi.devlopeapps;
+
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class MicroAndArrayUpdate {
 
@@ -18,7 +21,7 @@ public class MicroAndArrayUpdate {
             System.out.println(""+ (Math.max(k - arr[0], 0)));
         }
 
-
     }
+
 }
 
