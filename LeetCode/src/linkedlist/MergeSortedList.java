@@ -1,11 +1,16 @@
 package linkedlist;
 
+/**
+ *
+ * Merge two sorted linked lists and return it as a new sorted list. The new list should be made by splicing together the nodes of the first two lists.
+
+    Example:
+
+    Input: 1->2->4, 1->3->4
+    Output: 1->1->2->3->4->4
+    * */
 public class MergeSortedList {
     public static void main(String[] args) {
-
-        /*[1,2,4]
-          [1,3,4]*/
-
 
 
 
@@ -13,32 +18,30 @@ public class MergeSortedList {
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 
-        ListNode resNode = new ListNode();
+        ListNode headNode = new ListNode(0);
+        ListNode curTempNode = headNode;
 
-        ListNode item1 = l1.next;
-        ListNode item2 = l2.next;
-        while (item1 != null || item2 != null) {
+        while (l1 != null && l2 != null) {
 
-            if (item1 == null)
-                resNode = l2;
-            else if (item2 == null)
-                resNode = l1;
-            else if (item1.val >= item2.val) {
-                resNode.next = item1.next;
-                resNode.next.next = item2.next;
+            if (l1.val >= l2.val) {
+                curTempNode.next = l2;
+                l2 = l2.next;
             } else {
-                resNode.next = item2.next;
-                resNode.next.next = item1.next;
-
-                item1 = item1.next;
-                item2 = item2.next;
+                curTempNode.next = l1;
+                l1 = l1.next;
             }
-
+            curTempNode = curTempNode.next;
+        }
+        if (l1 != null) {
+            curTempNode.next = l1;
+            l1 = l1.next;
         }
 
-        return resNode;
-
-
+        if (l2 != null) {
+            curTempNode.next = l2;
+            l2 = l2.next;
+        }
+        return headNode.next;
     }
 
     //  Definition for singly-linked list.
