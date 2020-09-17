@@ -1,4 +1,4 @@
-package com.devlopeapps;
+package com.avi.devlopeapps;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,7 +78,7 @@ public class AttendanceRecords {
 
     private static void printSpecifiedEmployee(String inputValue) {
 
-        if (inputValue == null && inputValue.isBlank()) {
+        if (inputValue == null || inputValue.isBlank()) {
             System.out.println("Employee record not found");
             return;
         }
@@ -87,13 +87,13 @@ public class AttendanceRecords {
         for (Employee model : employeeArrayList) {
             if ((model.empId + "").contains(inputValue) || model.empName.contains(inputValue)) {
 
-                String deprtStr = "";
+                String departSir;
                 if (model.department.equals("HR"))
-                    deprtStr = model.department + "\t\t\t\t";
+                    departSir = model.department + "\t\t\t\t";
                 else
-                    deprtStr = model.department + "\t\t\t";
+                    departSir = model.department + "\t\t\t";
 
-                String s = deprtStr + model.empId + "\t\t\t" + model.empName + "\t\t\t" + model.model.get(0).isPresent + "\t"
+                String s = departSir + model.empId + "\t\t\t" + model.empName + "\t\t\t" + model.model.get(0).isPresent + "\t"
                         + model.model.get(1).isPresent + "\t" + model.model.get(2).isPresent + "\t" + model.model.get(3).isPresent + "\t"
                         + model.model.get(4).isPresent + "\t" + model.model.get(5).isPresent;
                 System.out.println(s);
@@ -140,7 +140,7 @@ public class AttendanceRecords {
         employee.department = department;
         employee.empId = empId;
         employee.empName = empName;
-        String days[] = new String[]{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+        String[] days = new String[]{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
         int[] daysPresent = {monday, tuesday, wednesday, thursday, friday, saturday};
         employee.model = new ArrayList<>();
         for (int i = 0; i < days.length; i++) {

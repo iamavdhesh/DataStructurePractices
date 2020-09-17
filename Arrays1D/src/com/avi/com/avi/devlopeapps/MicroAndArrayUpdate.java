@@ -1,6 +1,9 @@
-package com.devlopeapps;
+package com.avi.devlopeapps;
+
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class MicroAndArrayUpdate {
 
@@ -11,14 +14,14 @@ public class MicroAndArrayUpdate {
         for (int i = 0; i < t; i++) {
             int n=sc.nextInt();
             int k=sc.nextInt();
-            int arr[]=new int[n];
+            int[] arr =new int[n];
             for(int j=0;j<n;j++)
                 arr[j]=sc.nextInt();
             Arrays.sort(arr);
             System.out.println(""+ (Math.max(k - arr[0], 0)));
         }
 
-
     }
+
 }
 
