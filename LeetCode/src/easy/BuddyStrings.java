@@ -38,7 +38,7 @@ import java.util.Map;
 public class BuddyStrings {
 
     public static void main(String[] args) {
-        System.out.println(buddyStrings("aaaa", "aaaa"));
+        System.out.println(buddyStrings("abab", "abab"));
     }
 
     public static boolean buddyStrings(String A, String B) {
@@ -91,4 +91,6 @@ public class BuddyStrings {
         }
 
     }
+
+
 }
